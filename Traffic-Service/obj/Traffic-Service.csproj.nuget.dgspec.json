@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fchio\\Desktop\\SmartCity-App\\Traffic-Service\\Traffic-Service.csproj": {}
+    "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Traffic-Service.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fchio\\Desktop\\SmartCity-App\\Traffic-Service\\Traffic-Service.csproj": {
+    "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Traffic-Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fchio\\Desktop\\SmartCity-App\\Traffic-Service\\Traffic-Service.csproj",
+        "projectUniqueName": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Traffic-Service.csproj",
         "projectName": "Traffic-Service",
-        "projectPath": "C:\\Users\\fchio\\Desktop\\SmartCity-App\\Traffic-Service\\Traffic-Service.csproj",
+        "projectPath": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Traffic-Service.csproj",
         "packagesPath": "C:\\Users\\fchio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fchio\\Desktop\\SmartCity-App\\Traffic-Service\\obj\\",
+        "outputPath": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fchio\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,6 +46,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
