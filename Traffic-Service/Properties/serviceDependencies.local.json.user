@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "rabbitmq1": {
+      "restored": true,
+      "restoreTime": "2025-05-22T13:49:09.1259408Z"
+    },
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2025-05-22T13:49:08.9422528Z"
+    },
+    "mongodb1": {
+      "restored": true,
+      "restoreTime": "2025-05-22T13:50:02.9498418Z"
+    }
+  },
+  "parameters": {}
+}

@@ -1,15 +1,48 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>Traffic_Service</RootNamespace>
+    <RootNamespace>SmartCity.TrafficService</RootNamespace>
+    <UserSecretsId>de33daed-d934-4ce7-be88-1c1d9900bc12</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <!-- ASP.NET Core -->
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    
+    <!-- JWT Authentication -->
+    
+    <!-- Orleans -->
+    <PackageReference Include="Microsoft.Orleans.Server" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Orleans.Client" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Orleans.Clustering.AdoNet" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Orleans.Persistence.AdoNet" Version="8.0.0" />
+    <PackageReference Include="OrleansDashboard" Version="8.0.0" />
+    
+    <!-- MongoDB -->
+    <PackageReference Include="MongoDB.Driver" Version="2.25.0" />
+    
+    <!-- Redis -->
+    <PackageReference Include="StackExchange.Redis" Version="2.7.17" />
+    
+    <!-- RabbitMQ -->
+    <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
+    
+    <!-- JSON -->
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    
+    <!-- Logging -->
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+    
+    <!-- OpenTelemetry (per monitoring) -->
+    <PackageReference Include="OpenTelemetry" Version="1.7.0" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.7.0" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.7.1" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  rabbitmq:
+    hostname: vs
+    image: "rabbitmq:3-management-alpine"
+    ports: 
+        - 5672:5672
+        - 15672:15672
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+      - rabbitmq_log:/var/log/rabbitmq
+
+volumes: 
+  rabbitmq_data:
+  rabbitmq_log:

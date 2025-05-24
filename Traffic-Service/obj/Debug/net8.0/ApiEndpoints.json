@@ -1,0 +1,120 @@
+[
+  {
+    "ContainingType": "Traffic_Service.Controllers.TrafficController",
+    "Method": "GetMostCongestedAreas",
+    "RelativePath": "api/Traffic/congestion/top",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "count",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Traffic_Service.Controllers.TrafficController",
+    "Method": "CheckCongestion",
+    "RelativePath": "api/Traffic/sensors/{sensorId}/congestion",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sensorId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Traffic_Service.Controllers.TrafficController",
+    "Method": "GetSensorData",
+    "RelativePath": "api/Traffic/sensors/{sensorId}/data",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sensorId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Traffic_Service.Controllers.TrafficController",
+    "Method": "RegisterSensor",
+    "RelativePath": "api/Traffic/sensors/{sensorId}/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sensorId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Traffic_Service.Controllers.RegisterSensorRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Traffic_Service.Controllers.TrafficController",
+    "Method": "SimulateTrafficUpdate",
+    "RelativePath": "api/Traffic/sensors/{sensorId}/simulate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sensorId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Traffic_Service.Controllers.SimulateTrafficRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Traffic_Service.Controllers.TrafficController",
+    "Method": "GetAllSensorData",
+    "RelativePath": "api/Traffic/sensors/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Program\u002B\u003C\u003Ec",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_4",
+    "RelativePath": "health",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

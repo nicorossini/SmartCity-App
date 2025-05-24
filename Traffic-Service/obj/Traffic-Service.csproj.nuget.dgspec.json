@@ -46,13 +46,73 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Orleans.Client": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Orleans.Clustering.AdoNet": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Orleans.Persistence.AdoNet": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Orleans.Server": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.25.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "OpenTelemetry": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "OpenTelemetry.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "OpenTelemetry.Instrumentation.AspNetCore": {
+              "target": "Package",
+              "version": "[1.7.1, )"
+            },
+            "OrleansDashboard": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.8.1, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.7.17, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

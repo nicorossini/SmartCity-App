@@ -1,0 +1,361 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\controllers\\trafficcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:controllers\\trafficcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\controllers\\simulatetrafficrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:controllers\\simulatetrafficrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\controllers\\registersensorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:controllers\\registersensorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\grains\\trafficsensorgrain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:grains\\trafficsensorgrain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\grains\\trafficmanagergrain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:grains\\trafficmanagergrain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\interfaces\\trafficsensordata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:interfaces\\trafficsensordata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\interfaces\\trafficevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:interfaces\\trafficevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\interfaces\\congestionarea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:interfaces\\congestionarea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\interfaces\\itrafficsensorgrain cs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:interfaces\\itrafficsensorgrain cs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\interfaces\\itrafficmanagergrain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:interfaces\\itrafficmanagergrain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\services\\rabbitmqservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:services\\rabbitmqservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\services\\redisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:services\\redisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\services\\mongodbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:services\\mongodbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\services\\iredisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:services\\iredisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\services\\irabbitmqservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:services\\irabbitmqservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\services\\imongodbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:services\\imongodbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fchio\\AppData\\Local\\Temp\\.vsdbgsrc\\6bd34adb6f6b832ce6e40c96966904c08ad15a2c5769cb1bee3d20081886fce3\\Logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|c:\\users\\fchio\\desktop\\distributedprogramming\\smartcity-app\\traffic-service\\traffic-service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{12CD0390-C385-467F-80BF-21A61FB06217}|Traffic-Service.csproj|solutionrelative:traffic-service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fchio\\AppData\\Local\\SourceServer\\880268572f461d7f2dfd2c98f66d9a1a9b9a61f3fefdab15a2384ea11c007515\\Traffic-Service\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TrafficSensorData.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Interfaces\\TrafficSensorData.cs",
+              "RelativeDocumentMoniker": "Interfaces\\TrafficSensorData.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Interfaces\\TrafficSensorData.cs",
+              "RelativeToolTip": "Interfaces\\TrafficSensorData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T12:59:22.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TrafficManagerGrain.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Grains\\TrafficManagerGrain.cs",
+              "RelativeDocumentMoniker": "Grains\\TrafficManagerGrain.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Grains\\TrafficManagerGrain.cs",
+              "RelativeToolTip": "Grains\\TrafficManagerGrain.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAswHYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:25:30.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TrafficSensorGrain.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Grains\\TrafficSensorGrain.cs",
+              "RelativeDocumentMoniker": "Grains\\TrafficSensorGrain.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Grains\\TrafficSensorGrain.cs",
+              "RelativeToolTip": "Grains\\TrafficSensorGrain.cs",
+              "ViewState": "AgIAAHMAAAAAAAAAAADwv4EAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:03:38.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RegisterSensorRequest.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Controllers\\RegisterSensorRequest.cs",
+              "RelativeDocumentMoniker": "Controllers\\RegisterSensorRequest.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Controllers\\RegisterSensorRequest.cs",
+              "RelativeToolTip": "Controllers\\RegisterSensorRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:28:34.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SimulateTrafficRequest.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Controllers\\SimulateTrafficRequest.cs",
+              "RelativeDocumentMoniker": "Controllers\\SimulateTrafficRequest.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Controllers\\SimulateTrafficRequest.cs",
+              "RelativeToolTip": "Controllers\\SimulateTrafficRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:29:16.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TrafficController.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Controllers\\TrafficController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TrafficController.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Controllers\\TrafficController.cs",
+              "RelativeToolTip": "Controllers\\TrafficController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:27:37.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TrafficEvent.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Interfaces\\TrafficEvent.cs",
+              "RelativeDocumentMoniker": "Interfaces\\TrafficEvent.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Interfaces\\TrafficEvent.cs",
+              "RelativeToolTip": "Interfaces\\TrafficEvent.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwAYAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:02:14.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CongestionArea.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Interfaces\\CongestionArea.cs",
+              "RelativeDocumentMoniker": "Interfaces\\CongestionArea.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Interfaces\\CongestionArea.cs",
+              "RelativeToolTip": "Interfaces\\CongestionArea.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:01:12.705Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ITrafficSensorGrain cs.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Interfaces\\ITrafficSensorGrain cs.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ITrafficSensorGrain cs.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Interfaces\\ITrafficSensorGrain cs.cs",
+              "RelativeToolTip": "Interfaces\\ITrafficSensorGrain cs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T12:56:35.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ITrafficManagerGrain.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Interfaces\\ITrafficManagerGrain.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ITrafficManagerGrain.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Interfaces\\ITrafficManagerGrain.cs",
+              "RelativeToolTip": "Interfaces\\ITrafficManagerGrain.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T12:58:24.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RabbitMQService.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Services\\RabbitMQService.cs",
+              "RelativeDocumentMoniker": "Services\\RabbitMQService.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Services\\RabbitMQService.cs",
+              "RelativeToolTip": "Services\\RabbitMQService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:19:41.403Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RedisService.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Services\\RedisService.cs",
+              "RelativeDocumentMoniker": "Services\\RedisService.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Services\\RedisService.cs",
+              "RelativeToolTip": "Services\\RedisService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:11:49.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MongoDbService.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Services\\MongoDbService.cs",
+              "RelativeDocumentMoniker": "Services\\MongoDbService.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Services\\MongoDbService.cs",
+              "RelativeToolTip": "Services\\MongoDbService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:13:40.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IRedisService.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Services\\IRedisService.cs",
+              "RelativeDocumentMoniker": "Services\\IRedisService.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Services\\IRedisService.cs",
+              "RelativeToolTip": "Services\\IRedisService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:08:12.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IRabbitMQService.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Services\\IRabbitMQService.cs",
+              "RelativeDocumentMoniker": "Services\\IRabbitMQService.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Services\\IRabbitMQService.cs",
+              "RelativeToolTip": "Services\\IRabbitMQService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:10:28.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IMongoDbService.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Services\\IMongoDbService.cs",
+              "RelativeDocumentMoniker": "Services\\IMongoDbService.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Services\\IMongoDbService.cs",
+              "RelativeToolTip": "Services\\IMongoDbService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:09:52.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T12:51:59.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Traffic-Service.csproj",
+              "DocumentMoniker": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Traffic-Service.csproj",
+              "RelativeDocumentMoniker": "Traffic-Service.csproj",
+              "ToolTip": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Traffic-Service.csproj",
+              "RelativeToolTip": "Traffic-Service.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-22T12:52:14.059Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Logger.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\AppData\\Local\\Temp\\.vsdbgsrc\\6bd34adb6f6b832ce6e40c96966904c08ad15a2c5769cb1bee3d20081886fce3\\Logger.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\6bd34adb6f6b832ce6e40c96966904c08ad15a2c5769cb1bee3d20081886fce3\\Logger.cs",
+              "ToolTip": "C:\\Users\\fchio\\AppData\\Local\\Temp\\.vsdbgsrc\\6bd34adb6f6b832ce6e40c96966904c08ad15a2c5769cb1bee3d20081886fce3\\Logger.cs [Sola lettura]",
+              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\6bd34adb6f6b832ce6e40c96966904c08ad15a2c5769cb1bee3d20081886fce3\\Logger.cs [Sola lettura]",
+              "ViewState": "AgIAACgBAAAAAAAAAAAIwDUBAAAjAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T14:27:33.894Z",
+              "EditorCaption": " [Sola lettura]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\fchio\\AppData\\Local\\SourceServer\\880268572f461d7f2dfd2c98f66d9a1a9b9a61f3fefdab15a2384ea11c007515\\Traffic-Service\\Program.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\SourceServer\\880268572f461d7f2dfd2c98f66d9a1a9b9a61f3fefdab15a2384ea11c007515\\Traffic-Service\\Program.cs",
+              "ToolTip": "C:\\Users\\fchio\\AppData\\Local\\SourceServer\\880268572f461d7f2dfd2c98f66d9a1a9b9a61f3fefdab15a2384ea11c007515\\Traffic-Service\\Program.cs [Sola lettura]",
+              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\SourceServer\\880268572f461d7f2dfd2c98f66d9a1a9b9a61f3fefdab15a2384ea11c007515\\Traffic-Service\\Program.cs [Sola lettura]",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAPAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:47:31.509Z",
+              "EditorCaption": " [Sola lettura]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
