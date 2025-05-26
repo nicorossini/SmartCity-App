@@ -14,11 +14,11 @@
           "Microsoft.Orleans.Clustering.AdoNet": "8.0.0",
           "Microsoft.Orleans.Persistence.AdoNet": "8.0.0",
           "Microsoft.Orleans.Server": "8.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
           "MongoDB.Driver": "2.25.0",
           "Newtonsoft.Json": "13.0.3",
           "OpenTelemetry": "1.7.0",
           "OpenTelemetry.Extensions.Hosting": "1.7.0",
-          "OpenTelemetry.Instrumentation.AspNetCore": "1.7.1",
           "OrleansDashboard": "8.0.0",
           "RabbitMQ.Client": "6.8.1",
           "Serilog.AspNetCore": "8.0.0",
@@ -644,6 +644,7 @@
           "Microsoft.Orleans.Sdk": "8.0.0"
         }
       },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.21.0": {},
       "Microsoft.Win32.Registry/5.0.0": {
         "dependencies": {
           "System.Security.AccessControl": "5.0.0",
@@ -774,17 +775,6 @@
           "lib/net8.0/OpenTelemetry.Extensions.Hosting.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.7.0.1106"
-          }
-        }
-      },
-      "OpenTelemetry.Instrumentation.AspNetCore/1.7.1": {
-        "dependencies": {
-          "OpenTelemetry.Api.ProviderBuilderExtensions": "1.7.0"
-        },
-        "runtime": {
-          "lib/net8.0/OpenTelemetry.Instrumentation.AspNetCore.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.7.1.1173"
           }
         }
       },
@@ -1596,6 +1586,13 @@
       "path": "microsoft.orleans.server/8.0.0",
       "hashPath": "microsoft.orleans.server.8.0.0.nupkg.sha512"
     },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.21.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8NudeHOE56YsY59HYY89akRMup8Ho+7Y3cADTGjajjWroXVU9RQai2nA6PfteB8AuzmRHZ5NZQB2BnWhQEul5g==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.21.0",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512"
+    },
     "Microsoft.Win32.Registry/5.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1665,13 +1662,6 @@
       "sha512": "sha512-MbB7CWWqb7xHK0jTF9Gtvw/eLWdaKqzkE1XAwLe05xyskHuwJWAbZFax4nGLA71YkMWQNO5iPIBlirvYXOLMlg==",
       "path": "opentelemetry.extensions.hosting/1.7.0",
       "hashPath": "opentelemetry.extensions.hosting.1.7.0.nupkg.sha512"
-    },
-    "OpenTelemetry.Instrumentation.AspNetCore/1.7.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-H6Br/PNxNJ9s0BS/iW8n7e8EivS3ovXTQnzrGBsYBHA4tsI/YuclNpTAntHBdXP+ziwu4dNRRahOBFtAk2hiZw==",
-      "path": "opentelemetry.instrumentation.aspnetcore/1.7.1",
-      "hashPath": "opentelemetry.instrumentation.aspnetcore.1.7.1.nupkg.sha512"
     },
     "OrleansDashboard/8.0.0": {
       "type": "package",

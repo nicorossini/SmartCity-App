@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wXyWCI9iuK0=",
+  "dgSpecHash": "S4qc235oGn8=",
   "success": true,
   "projectFilePath": "C:\\Users\\fchio\\Desktop\\DistributedProgramming\\SmartCity-App\\Traffic-Service\\Traffic-Service.csproj",
   "expectedPackageFiles": [
@@ -68,6 +68,7 @@
     "C:\\Users\\fchio\\.nuget\\packages\\microsoft.orleans.serialization\\8.0.0\\microsoft.orleans.serialization.8.0.0.nupkg.sha512",
     "C:\\Users\\fchio\\.nuget\\packages\\microsoft.orleans.serialization.abstractions\\8.0.0\\microsoft.orleans.serialization.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\fchio\\.nuget\\packages\\microsoft.orleans.server\\8.0.0\\microsoft.orleans.server.8.0.0.nupkg.sha512",
+    "C:\\Users\\fchio\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512",
     "C:\\Users\\fchio\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\fchio\\.nuget\\packages\\mongodb.bson\\2.25.0\\mongodb.bson.2.25.0.nupkg.sha512",
     "C:\\Users\\fchio\\.nuget\\packages\\mongodb.driver\\2.25.0\\mongodb.driver.2.25.0.nupkg.sha512",
@@ -78,7 +79,6 @@
     "C:\\Users\\fchio\\.nuget\\packages\\opentelemetry.api\\1.7.0\\opentelemetry.api.1.7.0.nupkg.sha512",
     "C:\\Users\\fchio\\.nuget\\packages\\opentelemetry.api.providerbuilderextensions\\1.7.0\\opentelemetry.api.providerbuilderextensions.1.7.0.nupkg.sha512",
     "C:\\Users\\fchio\\.nuget\\packages\\opentelemetry.extensions.hosting\\1.7.0\\opentelemetry.extensions.hosting.1.7.0.nupkg.sha512",
-    "C:\\Users\\fchio\\.nuget\\packages\\opentelemetry.instrumentation.aspnetcore\\1.7.1\\opentelemetry.instrumentation.aspnetcore.1.7.1.nupkg.sha512",
     "C:\\Users\\fchio\\.nuget\\packages\\orleansdashboard\\8.0.0\\orleansdashboard.8.0.0.nupkg.sha512",
     "C:\\Users\\fchio\\.nuget\\packages\\orleansdashboard.core\\8.0.0\\orleansdashboard.core.8.0.0.nupkg.sha512",
     "C:\\Users\\fchio\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
@@ -123,16 +123,5 @@
     "C:\\Users\\fchio\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
     "C:\\Users\\fchio\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Il pacchetto 'OpenTelemetry.Instrumentation.AspNetCore' 1.7.1 presenta una vulnerabilità nota di gravità moderata, https://github.com/advisories/GHSA-vh2m-22xx-q94f",
-      "libraryId": "OpenTelemetry.Instrumentation.AspNetCore",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

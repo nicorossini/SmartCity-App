@@ -6,12 +6,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>SmartCity.TrafficService</RootNamespace>
     <UserSecretsId>de33daed-d934-4ce7-be88-1c1d9900bc12</UserSecretsId>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- ASP.NET Core -->
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     
     <!-- JWT Authentication -->
@@ -42,7 +45,6 @@
     <!-- OpenTelemetry (per monitoring) -->
     <PackageReference Include="OpenTelemetry" Version="1.7.0" />
     <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.7.0" />
-    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.7.1" />
   </ItemGroup>
 
 </Project>

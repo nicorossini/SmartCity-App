@@ -86,7 +86,7 @@ namespace Traffic_Service.Grains
                     SimulateTrafficData,
                     null,
                     TimeSpan.FromMinutes(1), // Start after 1 minute
-                    TimeSpan.FromMinutes(5)  // Update every 5 minutes
+                    TimeSpan.FromMinutes(2)  // Update every 5 minutes
                 );
 
                 _logger.LogInformation("Started periodic updates for sensor {SensorId}", _sensorData.SensorId);

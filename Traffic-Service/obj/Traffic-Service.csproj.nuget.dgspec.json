@@ -70,6 +70,10 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.21.0, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.25.0, )"
@@ -85,10 +89,6 @@
             "OpenTelemetry.Extensions.Hosting": {
               "target": "Package",
               "version": "[1.7.0, )"
-            },
-            "OpenTelemetry.Instrumentation.AspNetCore": {
-              "target": "Package",
-              "version": "[1.7.1, )"
             },
             "OrleansDashboard": {
               "target": "Package",

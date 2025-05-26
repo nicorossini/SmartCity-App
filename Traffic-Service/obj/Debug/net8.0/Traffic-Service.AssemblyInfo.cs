@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Traffic-Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e8638a5278747f87a6fca115ccdbd71e3b8014f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f1b0e38f892685a45267807a36698354a6c6bed")]
 [assembly: System.Reflection.AssemblyProductAttribute("Traffic-Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Traffic-Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
