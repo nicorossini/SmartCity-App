@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Parking_system.props" />
+</Project>

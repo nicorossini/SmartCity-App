@@ -1,0 +1,95 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/lauz/Desktop/RepoDistributed/SmartCity-App/Parking_system/Parking_system.csproj": {}
+  },
+  "projects": {
+    "/Users/lauz/Desktop/RepoDistributed/SmartCity-App/Parking_system/Parking_system.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/lauz/Desktop/RepoDistributed/SmartCity-App/Parking_system/Parking_system.csproj",
+        "projectName": "Parking_system",
+        "projectPath": "/Users/lauz/Desktop/RepoDistributed/SmartCity-App/Parking_system/Parking_system.csproj",
+        "packagesPath": "/Users/lauz/.nuget/packages/",
+        "outputPath": "/Users/lauz/Desktop/RepoDistributed/SmartCity-App/Parking_system/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/lauz/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.Orleans.Server": {
+              "target": "Package",
+              "version": "[9.1.2, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
+            "Orleans.Providers.MongoDB": {
+              "target": "Package",
+              "version": "[9.1.0, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.8.37, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.402/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
