@@ -38,5 +38,16 @@ public class SprinklerGrain : Grain, ISprinklerGrain
         await _cache.SetAsync($"sprinkler:{this.GetPrimaryKeyString()}", "off");
     }
 
-    public Task<bool> IsOn() => Task.FromResult(_state.State.IsOn);
+    public async Task<bool> IsOn()
+    {
+        var cachedState = await _cache.GetAsync($"sprinkler:{this.GetPrimaryKeyString()}");
+        if (cachedState != null && bool.TryParse(cachedState, out bool is_on))
+        {
+            return is_on;
+        }
+
+        var isOn = _state.State.IsOn;
+
+        return isOn;
+    }
 }

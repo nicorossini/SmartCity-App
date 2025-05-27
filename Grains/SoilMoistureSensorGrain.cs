@@ -28,8 +28,19 @@ public class SoilMoistureSensorGrain : Grain, ISoilMoistureSensorGrain
     {
         _state.State.Moisture = value;
         await _state.WriteStateAsync();
-        await _cache.SetAsync($"temp:{this.GetPrimaryKeyString()}", value.ToString());
+        await _cache.SetAsync($"moisture:{this.GetPrimaryKeyString()}", value.ToString());
     }
 
-    public Task<float> GetMoisture() => Task.FromResult(_state.State.Moisture);
+    public async Task<float> GetMoisture()
+    {
+        var cachedMoisture = await _cache.GetAsync($"moisture:{this.GetPrimaryKeyString()}");
+        if (cachedMoisture != null && float.TryParse(cachedMoisture, out float moist))
+        {
+            return moist;
+        }
+
+        var moisture = _state.State.Moisture;
+
+        return moisture;
+    }
 }

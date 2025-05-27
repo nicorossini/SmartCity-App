@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Orleans.Runtime;
 using SmartCity.Interfaces;
 using SmartCity.Services;
+using Orleans.Serialization.Buffers;
 
 [Serializable]
 public class AirTemperatureSensorState
@@ -28,8 +29,20 @@ public class AirTemperatureSensorGrain : Grain, IAirTemperatureSensorGrain
     {
         _state.State.Temperature = value;
         await _state.WriteStateAsync();
-        await _cache.SetAsync($"temp:{this.GetPrimaryKeyString()}", value.ToString());
+        await _cache.SetAsync($"airTemp:{this.GetPrimaryKeyString()}", value.ToString());
     }
 
-    public Task<float> GetTemperature() => Task.FromResult(_state.State.Temperature);
+    public async Task<float> GetTemperature()
+    {
+        var cachedTemp = await _cache.GetAsync($"airTemp:{this.GetPrimaryKeyString()}");
+        if (cachedTemp != null && float.TryParse(cachedTemp, out float temp))
+        {
+            return temp;
+        }
+
+        var temperature = _state.State.Temperature;
+
+        return temperature;
+    }
+    
 }
