@@ -13,7 +13,7 @@ From the terminal in your project folder:
 ```bash
 dotnet run
 ```
-##API Endpoints:
+## API Endpoints:
 - `POST http://localhost:5270/api/water/sensor/temp/zone-001` - Set air temperature
 - `POST http://localhost:5270/api/water/sensor/moisture/zone-001` - Set soil moisture
 - `POST http://localhost:5270/api/water/zone/zone-001/simulate` - Simulate zone
