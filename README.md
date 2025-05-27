@@ -13,14 +13,9 @@ From the terminal in your project folder:
 ```bash
 dotnet run
 ```
-Finally you can test the app:
-```bash
-Set air temperature:
-POST http://localhost:5270/api/water/sensor/temp/zone-001
-Set soil moisture:
-POST http://localhost:5270/api/water/sensor/moisture/zone-001
-Simulate zone:
-POST http://localhost:5270/api/water/zone/zone-001/simulate
-Check status:
-GET http://localhost:5270/api/water/zone/zone-001/status
-```
+##API Endpoints:
+- `POST http://localhost:5270/api/water/sensor/temp/zone-001` - Set air temperature
+- `POST http://localhost:5270/api/water/sensor/moisture/zone-001` - Set soil moisture
+- `POST http://localhost:5270/api/water/zone/zone-001/simulate` - Simulate zone
+- `GET http://localhost:5270/api/water/zone/zone-001/status` - Check status
+
