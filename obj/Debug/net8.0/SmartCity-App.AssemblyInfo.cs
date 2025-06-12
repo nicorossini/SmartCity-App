@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartCity-App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8eea49470310733e1f2d9f8d591414aa2d05397d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e3c175de6248b0bea0100f64b2f25114463de69")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartCity-App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartCity-App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

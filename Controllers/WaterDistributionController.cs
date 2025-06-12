@@ -11,9 +11,9 @@ namespace SmartCity.Controllers;
 public class WaterDistributionController : ControllerBase
 {
     private readonly IClusterClient _clusterClient;
-    private readonly ILogger<WaterController> _logger;
+    private readonly ILogger<WaterDistributionController> _logger;
 
-    public WaterDistributionController(IClusterClient clusterClient, ILogger<WaterController> logger)
+    public WaterDistributionController(IClusterClient clusterClient, ILogger<WaterDistributionController> logger)
     {
         _clusterClient = clusterClient;
         _logger = logger;
