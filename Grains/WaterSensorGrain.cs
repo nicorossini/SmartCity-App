@@ -215,8 +215,9 @@ public class WaterSensorGrain : Grain, IWaterSensorGrain
             >= 6 and <= 9 => 1.8,    // Morning peak
             >= 10 and <= 16 => 1.0,  // Day time
             >= 17 and <= 21 => 1.6,  // Evening peak
-            >= 22 or <= 5 => 0.3,    // Night time
-            _ => 1.0
+            >= 22 and <= 23 => 0.3,  // Night time
+            >= 0 and <= 5 => 0.3,    // Night time
+            _ => 1.0  
         };
         
         var random = new Random();
