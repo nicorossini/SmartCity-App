@@ -3,20 +3,14 @@ using SmartCity.Interfaces.Models;
 
 namespace SmartCity.Services;
 
-public class MongoDbService
+public class MongoDbService: IMongoDBService
 {
-    private readonly IMongoDatabase _database;
     private readonly IMongoCollection<WaterSensorData> _sensorDataCollection;
     private readonly IMongoCollection<WaterZoneStatus> _zoneStatusCollection;
     private readonly IMongoCollection<WaterAlert> _alertsCollection;
 
-    public MongoDbService(IConfiguration configuration)
+    public MongoDbService(IMongoDatabase _database)
     {
-        var connectionString = configuration.GetConnectionString("MongoDB") 
-            ?? "mongodb://localhost:27017";
-        var client = new MongoClient(connectionString);
-        _database = client.GetDatabase("WaterDistributionDB");
-        
         _sensorDataCollection = _database.GetCollection<WaterSensorData>("water_sensor_data");
         _zoneStatusCollection = _database.GetCollection<WaterZoneStatus>("water_zone_status");
         _alertsCollection = _database.GetCollection<WaterAlert>("water_alerts");
