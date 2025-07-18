@@ -51,6 +51,14 @@
               "target": "Package",
               "version": "[8.0.8, )"
             },
+            "Microsoft.Extensions.Logging.Console": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
             "Microsoft.Orleans.Hosting.Kubernetes": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -61,11 +69,19 @@
             },
             "MongoDB.Driver": {
               "target": "Package",
-              "version": "[2.22.0, )"
+              "version": "[2.25.0, )"
             },
             "OrleansDashboard": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.7.0, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.7.18, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -73,7 +89,7 @@
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[7.5.1, )"
+              "version": "[7.0.3, )"
             }
           },
           "imports": [

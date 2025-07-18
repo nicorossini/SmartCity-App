@@ -44,9 +44,12 @@
 /Users/lauz/Desktop/RepoDistributed/SmartCity-App/SmartCityParking/bin/Debug/net8.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll
 /Users/lauz/Desktop/RepoDistributed/SmartCity-App/SmartCityParking/bin/Debug/net8.0/OrleansDashboard.dll
 /Users/lauz/Desktop/RepoDistributed/SmartCity-App/SmartCityParking/bin/Debug/net8.0/OrleansDashboard.Core.dll
+/Users/lauz/Desktop/RepoDistributed/SmartCity-App/SmartCityParking/bin/Debug/net8.0/Pipelines.Sockets.Unofficial.dll
 /Users/lauz/Desktop/RepoDistributed/SmartCity-App/SmartCityParking/bin/Debug/net8.0/Prometheus.NetStandard.dll
+/Users/lauz/Desktop/RepoDistributed/SmartCity-App/SmartCityParking/bin/Debug/net8.0/RabbitMQ.Client.dll
 /Users/lauz/Desktop/RepoDistributed/SmartCity-App/SmartCityParking/bin/Debug/net8.0/SharpCompress.dll
 /Users/lauz/Desktop/RepoDistributed/SmartCity-App/SmartCityParking/bin/Debug/net8.0/Snappier.dll
+/Users/lauz/Desktop/RepoDistributed/SmartCity-App/SmartCityParking/bin/Debug/net8.0/StackExchange.Redis.dll
 /Users/lauz/Desktop/RepoDistributed/SmartCity-App/SmartCityParking/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/lauz/Desktop/RepoDistributed/SmartCity-App/SmartCityParking/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/lauz/Desktop/RepoDistributed/SmartCity-App/SmartCityParking/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll

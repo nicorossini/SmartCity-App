@@ -10,16 +10,14 @@ namespace SmartCityParking.Grains.Implementations
         private bool _isOccupied = false;
         private string? _currentUser = null;
         private readonly IMongoService _mongoService;
+        private DateTime? _reservationTime;
 
         public ParkingSpotGrain(IMongoService mongoService)
         {
             _mongoService = mongoService;
         }
 
-        public Task<bool> IsOccupiedAsync()
-        {
-            return Task.FromResult(_isOccupied);
-        }
+        public Task<bool> IsOccupiedAsync() => Task.FromResult(_isOccupied);
 
         public async Task<bool> ReserveAsync(string userId)
         {
@@ -28,14 +26,14 @@ namespace SmartCityParking.Grains.Implementations
 
             _isOccupied = true;
             _currentUser = userId;
+            _reservationTime = DateTime.UtcNow;
 
-            // Log to MongoDB
             await _mongoService.LogParkingEventAsync(new ParkingEvent
             {
                 UserId = userId,
                 SpotId = (int)this.GetPrimaryKeyLong(),
                 Action = "RESERVE",
-                Timestamp = DateTime.UtcNow
+                Timestamp = _reservationTime.Value
             });
 
             return true;
@@ -46,31 +44,25 @@ namespace SmartCityParking.Grains.Implementations
             if (!_isOccupied || _currentUser != userId)
                 return false;
 
+            var releaseTime = DateTime.UtcNow;
+            
             _isOccupied = false;
             _currentUser = null;
+            _reservationTime = null;
 
-            // Log to MongoDB
             await _mongoService.LogParkingEventAsync(new ParkingEvent
             {
                 UserId = userId,
                 SpotId = (int)this.GetPrimaryKeyLong(),
                 Action = "RELEASE",
-                Timestamp = DateTime.UtcNow
+                Timestamp = releaseTime
             });
 
             return true;
         }
 
-        public Task<string?> GetCurrentUserAsync()
-        {
-            return Task.FromResult(_currentUser);
-        }
-
-        public Task InitializeAsync()
-        {
-            _isOccupied = false;
-            _currentUser = null;
-            return Task.CompletedTask;
-        }
+        public Task<string?> GetCurrentUserAsync() => Task.FromResult(_currentUser);
+        public Task<DateTime?> GetReservationTimeAsync() => Task.FromResult(_reservationTime);
+        public Task InitializeAsync() => Task.CompletedTask;
     }
 }

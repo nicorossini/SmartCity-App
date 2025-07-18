@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartCityParking")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd78da2ead4c5a6b19303b1048445da441e026a3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5aa98ad442b81ec8ae4728d98433bc77a99d8631")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartCityParking")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartCityParking")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

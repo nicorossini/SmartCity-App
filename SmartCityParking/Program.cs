@@ -4,6 +4,10 @@ using SmartCityParking.Services.Interfaces;
 using SmartCityParking.Services.Implementations; 
 using SmartCityParking.Grains.Interfaces;         
 using System.Text;
+using MongoDB.Driver;
+using StackExchange.Redis;
+using Orleans.Runtime;
+using Orleans.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +36,23 @@ builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IMongoService, MongoService>();
 
+// MongoDB
+builder.Services.AddSingleton<IMongoClient>(sp =>
+    new MongoClient(builder.Configuration.GetConnectionString("MongoDB")
+        ?? "mongodb://localhost:27017"));
+builder.Services.AddSingleton<IMongoDatabase>(sp =>
+    sp.GetService<IMongoClient>()!.GetDatabase("SmartCityTraffic"));
+builder.Services.AddSingleton<IMongoDbService, MongoDbService>();
+
+// Redis
+builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+    ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("Redis")
+        ?? "localhost:6379"));
+builder.Services.AddSingleton<IRedisService, RedisService>();
+
+// RabbitMQ
+builder.Services.AddSingleton<IRabbitMQService, RabbitMQService>();
+
 // Configure Orleans
 builder.Host.UseOrleans((context, silo) =>
 {
@@ -39,7 +60,7 @@ builder.Host.UseOrleans((context, silo) =>
         siloPort: 11111,
         gatewayPort: 30000,
         primarySiloEndpoint: null)
-        .ConfigureLogging(logging => logging.AddConsole())
+        .ConfigureLogging(logging => logging.AddConsole().SetMinimumLevel(LogLevel.Information))
         .UseDashboard(options => 
         { 
             options.Host = "*";
@@ -47,6 +68,11 @@ builder.Host.UseOrleans((context, silo) =>
             options.HostSelf = true;
         })
         .AddMemoryGrainStorageAsDefault()
+        .Configure<ClusterOptions>(options =>
+        {
+            options.ClusterId = "dev";
+            options.ServiceId = "TrafficService";
+        })
         .ConfigureServices(services =>
         {
             // Register grain services
@@ -69,27 +95,41 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// Endpoint for health check
+app.MapGet("/health", () => "Healthy");
+
 // Start app
 await app.StartAsync();
 
 try
 {
-    // Initialize parking system with a delay to ensure Orleans is ready
+    // Initialize systems with a delay to ensure Orleans is ready
     await Task.Delay(2000); // Give Orleans time to fully initialize
     
     using (var scope = app.Services.CreateScope())
     {
         var grainFactory = scope.ServiceProvider.GetRequiredService<IGrainFactory>();
-        var parkingManager = grainFactory.GetGrain<IParkingManagerGrain>("main");
         
+        // Initialize parking system
+        var parkingManager = grainFactory.GetGrain<IParkingManagerGrain>("main");
         Console.WriteLine("Initializing parking system with 10 spots...");
         await parkingManager.InitializeAsync(10);
         Console.WriteLine("Parking system initialized successfully!");
+
+        // Initialize traffic sensors
+        var trafficManager = grainFactory.GetGrain<ITrafficManagerGrain>(0);
+        Console.WriteLine("Initializing traffic sensors...");
+        await trafficManager.RegisterSensorAsync("SENSOR_001", "Via Roma - Piazza Centrale");
+        await trafficManager.RegisterSensorAsync("SENSOR_002", "Corso Italia - Via Garibaldi");
+        await trafficManager.RegisterSensorAsync("SENSOR_003", "Viale Europa - Via Nazionale");
+        await trafficManager.RegisterSensorAsync("SENSOR_004", "Piazza Duomo - Via Mazzini");
+        await trafficManager.RegisterSensorAsync("SENSOR_005", "Stazione Centrale - Via Veneto");
+        Console.WriteLine("Traffic sensors initialized successfully!");
     }
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Error initializing parking system: {ex.Message}");
+    Console.WriteLine($"Error initializing systems: {ex.Message}");
 }
 
 // Keep the app running until shutdown

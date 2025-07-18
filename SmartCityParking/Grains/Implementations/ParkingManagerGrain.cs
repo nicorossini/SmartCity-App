@@ -2,19 +2,21 @@ using Orleans;
 using SmartCityParking.Grains.Interfaces;
 using SmartCityParking.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SmartCityParking.Grains.Implementations
 {
-public class ParkingManagerGrain : Grain, IParkingManagerGrain
+    public class ParkingManagerGrain : Grain, IParkingManagerGrain
     {
         private int _totalSpots = 0;
-        private readonly Dictionary<string, int> _userToSpot = new();
+        private readonly Dictionary<string, List<int>> _userToSpots = new(); // Now tracks multiple spots per user
+        private const int MaxSpotsPerUser = 2; // Maximum spots a user can reserve
 
         public async Task<int?> ReserveParkingSpotAsync(string userId)
         {
-            // Check if user already has a spot
-            if (_userToSpot.ContainsKey(userId))
+            // Check if user already has maximum allowed spots
+            if (_userToSpots.TryGetValue(userId, out var userSpots) && userSpots.Count >= MaxSpotsPerUser)
                 return null;
 
             // Find available spot
@@ -25,7 +27,13 @@ public class ParkingManagerGrain : Grain, IParkingManagerGrain
                 {
                     if (await spotGrain.ReserveAsync(userId))
                     {
-                        _userToSpot[userId] = spotId;
+                        // Initialize list if this is user's first reservation
+                        if (!_userToSpots.ContainsKey(userId))
+                        {
+                            _userToSpots[userId] = new List<int>();
+                        }
+                        
+                        _userToSpots[userId].Add(spotId);
                         return spotId;
                     }
                 }
@@ -36,13 +44,23 @@ public class ParkingManagerGrain : Grain, IParkingManagerGrain
 
         public async Task<bool> ReleaseParkingSpotAsync(string userId)
         {
-            if (!_userToSpot.TryGetValue(userId, out int spotId))
+            if (!_userToSpots.TryGetValue(userId, out var userSpots) || userSpots.Count == 0)
                 return false;
 
-            var spotGrain = GrainFactory.GetGrain<IParkingSpotGrain>(spotId);
+            // Get the last reserved spot (LIFO behavior)
+            var lastSpotId = userSpots.Last();
+            var spotGrain = GrainFactory.GetGrain<IParkingSpotGrain>(lastSpotId);
+            
             if (await spotGrain.ReleaseAsync(userId))
             {
-                _userToSpot.Remove(userId);
+                userSpots.Remove(lastSpotId);
+                
+                // Remove user entry if no more spots reserved
+                if (userSpots.Count == 0)
+                {
+                    _userToSpots.Remove(userId);
+                }
+                
                 return true;
             }
 
@@ -82,6 +100,16 @@ public class ParkingManagerGrain : Grain, IParkingManagerGrain
                 var spotGrain = GrainFactory.GetGrain<IParkingSpotGrain>(spotId);
                 await spotGrain.InitializeAsync();
             }
+        }
+
+        // New method to get all spots reserved by a user
+        public Task<List<int>> GetUserReservedSpotsAsync(string userId)
+        {
+            if (_userToSpots.TryGetValue(userId, out var spots))
+            {
+                return Task.FromResult(new List<int>(spots)); // Return copy of the list
+            }
+            return Task.FromResult(new List<int>());
         }
     }
 }

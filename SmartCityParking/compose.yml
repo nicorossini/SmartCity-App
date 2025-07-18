@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+  # MongoDB with authentication and initialization
   mongodb:
     image: mongo:7.0
     container_name: smartcity-mongodb
@@ -17,7 +18,7 @@ services:
     networks:
       - smartcity-network
 
-  # Optional: MongoDB Express for database management UI
+  # MongoDB management UI
   mongo-express:
     image: mongo-express:1.0.0
     container_name: smartcity-mongo-express
@@ -31,6 +32,40 @@ services:
       ME_CONFIG_BASICAUTH: false
     depends_on:
       - mongodb
+    networks:
+      - smartcity-network
+
+  # Redis
+  redis:
+    image: redis:latest
+    container_name: smartcity-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - smartcity-network
+
+  # Redis management UI
+  redis-insight:
+    image: redis/redisinsight:latest
+    container_name: smartcity-redis-insight
+    restart: always
+    ports:
+      - "8001:8001"
+    networks:
+      - smartcity-network
+
+  # RabbitMQ with management plugin
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: smartcity-rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"  # AMQP protocol port
+      - "15672:15672" # Management UI port
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
     networks:
       - smartcity-network
 
