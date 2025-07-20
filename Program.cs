@@ -1,5 +1,6 @@
 using Microsoft.OpenApi.Models;
 using Orleans;
+using Orleans.Runtime;
 using Orleans.Configuration;
 using Orleans.Hosting;
 using SmartCity.Grains;
@@ -10,7 +11,7 @@ using MongoDB.Driver;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
@@ -40,7 +41,7 @@ public class Program
                 c.IncludeXmlComments(xmlPath);
             }
         });
-        
+
         // Register infrastructure services
         builder.Services.AddSingleton<IMongoClient>(sp =>
             new MongoClient(builder.Configuration.GetConnectionString("MongoDB") ?? "mongodb://localhost:27017"));
@@ -49,12 +50,12 @@ public class Program
             sp.GetRequiredService<IMongoClient>().GetDatabase("WaterDistributionDB"));
 
         builder.Services.AddSingleton<IMongoDBService, MongoDbService>();
-        
+
         // Redis
         builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
             ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("Redis")
                 ?? "localhost:6379"));
-        
+
         builder.Services.AddSingleton<IRedisCacheService, RedisCacheService>();
 
         // RabbitMQ
@@ -94,7 +95,7 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-        app.UseAuthorization();
+        //app.UseAuthorization();
         app.MapControllers();
 
         // Start application in backgrounf and then initialize sensors
@@ -105,12 +106,13 @@ public class Program
         {
             // Wait for Orleans to be ready
             await Task.Delay(TimeSpan.FromSeconds(10));
-                
+
             var clusterClient = app.Services.GetRequiredService<IClusterClient>();
-                
+
             var managerGrain = clusterClient.GetGrain<IWaterManagerGrain>("water-system");
-            await managerGrain.InitializeTestDataAsync(); 
+            await managerGrain.InitializeTestDataAsync();
         });
 
+        await runTask;
     }
 }

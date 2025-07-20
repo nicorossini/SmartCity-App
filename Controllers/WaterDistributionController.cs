@@ -32,12 +32,11 @@ public class WaterDistributionController : ControllerBase
         try
         {
             var sensorGrain = _clusterClient.GetGrain<IWaterSensorGrain>(sensorId);
-            await sensorGrain.RegisterSensorAsync(request.Location, request.Type, request.ZoneId);
-            
-            _logger.LogInformation("Registered water sensor {SensorId} at {Location}", 
-                sensorId, request.Location);
-            
-            return Ok(new { Message = "Sensor registered successfully", SensorId = sensorId });
+            var currentSensor = await sensorGrain.RegisterSensorAsync(request.Location, request.Type, request.ZoneId);
+            if (currentSensor)
+                return Ok(new { Message = "Sensor registered successfully", SensorId = sensorId });
+            else
+                return Ok(new { Message = "Sensor already exists", SensorId = sensorId });
         }
         catch (Exception ex)
         {
@@ -59,12 +58,12 @@ public class WaterDistributionController : ControllerBase
         {
             var sensorGrain = _clusterClient.GetGrain<IWaterSensorGrain>(sensorId);
             var isActive = await sensorGrain.IsActiveAsync();
-            
+
             if (!isActive)
             {
                 return NotFound(new { Error = "Sensor not found or inactive", SensorId = sensorId });
             }
-            
+
             var data = await sensorGrain.GetCurrentDataAsync();
             return Ok(data);
         }
@@ -75,35 +74,65 @@ public class WaterDistributionController : ControllerBase
         }
     }
 
-    /// <summary>
-    /// Manually simulate sensor data (for testing)
+    // <summary>
+    /// active sensor
     /// </summary>
     /// <param name="sensorId">Sensor identifier</param>
-    /// <param name="data">Sensor data to simulate</param>
-    [HttpPost("sensors/{sensorId}/simulate")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    [HttpGet("sensors/{sensorId}/active")]
+    [ProducesResponseType(typeof(WaterSensorData), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> SimulateSensorData(string sensorId, [FromBody] WaterSensorData data)
+    public async Task<IActionResult> ActiveSensor(string sensorId)
     {
         try
         {
             var sensorGrain = _clusterClient.GetGrain<IWaterSensorGrain>(sensorId);
             var isActive = await sensorGrain.IsActiveAsync();
-            
-            if (!isActive)
+
+            if (isActive)
             {
-                return NotFound(new { Error = "Sensor not found or inactive", SensorId = sensorId });
+                return Ok(new { Error = "Sensor is already activated", SensorId = sensorId });
             }
-            
-            await sensorGrain.UpdateSensorDataAsync(data);
-            
-            _logger.LogInformation("Simulated data for sensor {SensorId}", sensorId);
-            return Ok(new { Message = "Sensor data simulated successfully", SensorId = sensorId });
+            else
+            {
+                await sensorGrain.ActiveSensorAsync();
+                return Ok(new { Error = "Sensor activated", SensorId = sensorId });
+            }
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Failed to simulate data for sensor {SensorId}", sensorId);
-            return BadRequest(new { Error = "Failed to simulate sensor data", Details = ex.Message });
+            _logger.LogError(ex, "Sensor {sensorId} not found", sensorId);
+            return NotFound(new { Error = "Sensor not found", SensorId = sensorId });
+        }
+    }
+
+    // <summary>
+    /// deactive sensor
+    /// </summary>
+    /// <param name="sensorId">Sensor identifier</param>
+    [HttpGet("sensors/{sensorId}/deactive")]
+    [ProducesResponseType(typeof(WaterSensorData), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeactiveSensor(string sensorId)
+    {
+        try
+        {
+            var sensorGrain = _clusterClient.GetGrain<IWaterSensorGrain>(sensorId);
+            var isActive = await sensorGrain.IsActiveAsync();
+
+            if (isActive)
+            {
+                await sensorGrain.DeactivateSensorAsync();
+                return Ok(new { Error = "Sensor deactivated", SensorId = sensorId });
+            }
+            else
+            {
+                return Ok(new { Error = "Sensor is already deactivated", SensorId = sensorId });
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Sensor {sensorId} not found", sensorId);
+            return NotFound(new { Error = "Sensor not found", SensorId = sensorId });
         }
     }
 
@@ -118,11 +147,14 @@ public class WaterDistributionController : ControllerBase
         {
             var managerGrain = _clusterClient.GetGrain<IWaterManagerGrain>("water-system");
             var zones = await managerGrain.GetAllZonesStatusAsync();
-            
+            _logger.LogWarning("Number of zones {Count}: ", zones.Count);
+
             var allSensorsData = new Dictionary<string, WaterSensorData>();
-            
+
             foreach (var zone in zones)
             {
+                _logger.LogInformation("Zone {ZoneId} has {Count} active sensors", zone.ZoneId, zone.ActiveSensors.Count);
+
                 foreach (var sensorId in zone.ActiveSensors)
                 {
                     try
@@ -132,12 +164,12 @@ public class WaterDistributionController : ControllerBase
                     }
                     catch (Exception ex)
                     {
-                        _logger.LogWarning("Failed to get data for sensor {SensorId}: {Error}", 
+                        _logger.LogWarning("Failed to get data for sensor {SensorId}: {Error}",
                             sensorId, ex.Message);
                     }
                 }
             }
-            
+
             return Ok(allSensorsData);
         }
         catch (Exception ex)
@@ -160,61 +192,13 @@ public class WaterDistributionController : ControllerBase
         {
             var zoneGrain = _clusterClient.GetGrain<IWaterZoneGrain>(zoneId);
             var status = await zoneGrain.GetZoneStatusAsync();
-            
+
             return Ok(status);
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Failed to get status for zone {ZoneId}", zoneId);
             return NotFound(new { Error = "Zone not found", ZoneId = zoneId });
-        }
-    }
-
-    /// <summary>
-    /// Get active alerts for a specific zone
-    /// </summary>
-    /// <param name="zoneId">Zone identifier</param>
-    [HttpGet("zones/{zoneId}/alerts")]
-    [ProducesResponseType(typeof(List<WaterAlert>), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GetZoneAlerts(string zoneId)
-    {
-        try
-        {
-            var zoneGrain = _clusterClient.GetGrain<IWaterZoneGrain>(zoneId);
-            var alerts = await zoneGrain.GetActiveAlertsAsync();
-            
-            return Ok(alerts);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Failed to get alerts for zone {ZoneId}", zoneId);
-            return NotFound(new { Error = "Zone not found", ZoneId = zoneId });
-        }
-    }
-
-    /// <summary>
-    /// Add a sensor to a specific zone
-    /// </summary>
-    /// <param name="zoneId">Zone identifier</param>
-    /// <param name="sensorId">Sensor identifier</param>
-    [HttpPost("zones/{zoneId}/sensors/{sensorId}")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> AddSensorToZone(string zoneId, string sensorId)
-    {
-        try
-        {
-            var zoneGrain = _clusterClient.GetGrain<IWaterZoneGrain>(zoneId);
-            await zoneGrain.AddSensorAsync(sensorId);
-            
-            _logger.LogInformation("Added sensor {SensorId} to zone {ZoneId}", sensorId, zoneId);
-            return Ok(new { Message = "Sensor added to zone successfully", ZoneId = zoneId, SensorId = sensorId });
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Failed to add sensor {SensorId} to zone {ZoneId}", sensorId, zoneId);
-            return BadRequest(new { Error = "Failed to add sensor to zone", Details = ex.Message });
         }
     }
 
@@ -229,7 +213,7 @@ public class WaterDistributionController : ControllerBase
         {
             var managerGrain = _clusterClient.GetGrain<IWaterManagerGrain>("water-system");
             var zones = await managerGrain.GetAllZonesStatusAsync();
-            
+
             return Ok(zones);
         }
         catch (Exception ex)
@@ -250,7 +234,7 @@ public class WaterDistributionController : ControllerBase
         {
             var managerGrain = _clusterClient.GetGrain<IWaterManagerGrain>("water-system");
             var overview = await managerGrain.GetSystemOverviewAsync();
-            
+
             return Ok(overview);
         }
         catch (Exception ex)
@@ -260,6 +244,29 @@ public class WaterDistributionController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Get active alerts for a specific zone
+    /// </summary>
+    /// <param name="zoneId">Zone identifier</param>
+    [HttpGet("zones/{zoneId}/alerts")]
+    [ProducesResponseType(typeof(List<WaterAlert>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetZoneAlerts(string zoneId)
+    {
+        try
+        {
+            var zoneGrain = _clusterClient.GetGrain<IWaterZoneGrain>(zoneId);
+            var alerts = await zoneGrain.GetActiveAlertsAsync();
+
+            return Ok(alerts);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to get alerts for zone {ZoneId}", zoneId);
+            return NotFound(new { Error = "Zone not found", ZoneId = zoneId });
+        }
+    }
+    
     /// <summary>
     /// Get critical alerts across the system
     /// </summary>
@@ -271,7 +278,7 @@ public class WaterDistributionController : ControllerBase
         {
             var managerGrain = _clusterClient.GetGrain<IWaterManagerGrain>("water-system");
             var alerts = await managerGrain.GetCriticalAlertsAsync();
-            
+
             return Ok(alerts);
         }
         catch (Exception ex)
@@ -280,78 +287,7 @@ public class WaterDistributionController : ControllerBase
             return BadRequest(new { Error = "Failed to retrieve critical alerts", Details = ex.Message });
         }
     }
-
-    /// <summary>
-    /// Check for detected leaks across all zones
-    /// </summary>
-    [HttpGet("leaks/detected")]
-    [ProducesResponseType(typeof(List<string>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetDetectedLeaks()
-    {
-        try
-        {
-            var managerGrain = _clusterClient.GetGrain<IWaterManagerGrain>("water-system");
-            var zones = await managerGrain.GetAllZonesStatusAsync();
-            
-            var leakZones = new List<string>();
-            
-            foreach (var zone in zones)
-            {
-                var zoneGrain = _clusterClient.GetGrain<IWaterZoneGrain>(zone.ZoneId);
-                var hasLeak = await zoneGrain.IsLeakDetectedAsync();
-                
-                if (hasLeak)
-                {
-                    leakZones.Add(zone.ZoneId);
-                }
-            }
-            
-            return Ok(leakZones);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Failed to check for leaks");
-            return BadRequest(new { Error = "Failed to check for leaks", Details = ex.Message });
-        }
-    }
-
-    /// <summary>
-    /// Initialize test data (sensors and zones)
-    /// </summary>
-    [HttpPost("system/initialize")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<IActionResult> InitializeTestData()
-    {
-        try
-        {
-            var managerGrain = _clusterClient.GetGrain<IWaterManagerGrain>("water-system");
-            await managerGrain.InitializeTestDataAsync();
-            
-            _logger.LogInformation("Test data initialized successfully");
-            return Ok(new { Message = "Test data initialized successfully" });
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Failed to initialize test data");
-            return BadRequest(new { Error = "Failed to initialize test data", Details = ex.Message });
-        }
-    }
-
-    /// <summary>
-    /// Health check endpoint
-    /// </summary>
-    [HttpGet("/health")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    public IActionResult HealthCheck()
-    {
-        return Ok(new 
-        { 
-            Status = "Healthy", 
-            Service = "Water Distribution Service",
-            Timestamp = DateTime.UtcNow,
-            Version = "1.0.0"
-        });
-    }
+   
 }
 
 /// <summary>

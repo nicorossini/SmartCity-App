@@ -7,6 +7,8 @@ namespace SmartCity.Services
         Task SaveSensorDataAsync(WaterSensorData record);
         Task SaveZoneStatusAsync(WaterZoneStatus record);
         Task SaveAlertAsync(WaterAlert record);
-        Task<List<WaterSensorData>> GetSensorHistoryAsync(string sensorId, DateTime from, DateTime to);
+        Task<bool> SensorExistsAsync(string sensorID, string zoneID);
+        Task<WaterZoneStatus?> GetZoneByIdAsync(string zoneId); 
+       
     }
 }

@@ -3,7 +3,7 @@ using SmartCity.Interfaces.Models;
 
 namespace SmartCity.Services;
 
-public class MongoDbService: IMongoDBService
+public class MongoDbService : IMongoDBService
 {
     private readonly IMongoCollection<WaterSensorData> _sensorDataCollection;
     private readonly IMongoCollection<WaterZoneStatus> _zoneStatusCollection;
@@ -21,6 +21,11 @@ public class MongoDbService: IMongoDBService
         await _sensorDataCollection.InsertOneAsync(data);
     }
 
+    public async Task<WaterZoneStatus?> GetZoneByIdAsync(string zoneId)
+    {
+        return await _zoneStatusCollection.Find(z => z.ZoneId == zoneId).FirstOrDefaultAsync();
+    }
+
     public async Task SaveZoneStatusAsync(WaterZoneStatus status)
     {
         await _zoneStatusCollection.ReplaceOneAsync(
@@ -34,11 +39,16 @@ public class MongoDbService: IMongoDBService
         await _alertsCollection.InsertOneAsync(alert);
     }
 
-    public async Task<List<WaterSensorData>> GetSensorHistoryAsync(string sensorId, DateTime from, DateTime to)
+    public async Task<bool> SensorExistsAsync(string sensorID, string zoneID)
     {
-        return await _sensorDataCollection
-            .Find(s => s.SensorId == sensorId && s.Timestamp >= from && s.Timestamp <= to)
-            .SortByDescending(s => s.Timestamp)
-            .ToListAsync();
+        var filter = Builders<WaterSensorData>.Filter.And(
+            Builders<WaterSensorData>.Filter.Eq(s => s.SensorId, sensorID),
+            Builders<WaterSensorData>.Filter.Eq(s => s.ZoneId, zoneID)
+        );
+
+        var exists = await _sensorDataCollection.Find(filter).AnyAsync();
+        Console.WriteLine($"Sensor exists: {exists} for SensorId={sensorID}, ZoneId={zoneID}");
+        return exists;
     }
+   
 }

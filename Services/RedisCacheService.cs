@@ -24,5 +24,9 @@ namespace SmartCity.Services
             var json = await _db.StringGetAsync(key);
             return json.HasValue ? JsonConvert.DeserializeObject<T>(json!) : default;
         }
+        public async Task DeleteAsync(string key)
+        {
+            await _db.KeyDeleteAsync(key);
+        }
     }
 }
