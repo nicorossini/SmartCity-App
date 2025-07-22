@@ -1,0 +1,40 @@
+services:
+  smartcity-mongodb:
+    image: mongo
+    container_name: smartcity-mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - smartcity-network
+
+  smartcity-redis:
+    image: redis
+    container_name: smartcity-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - smartcity-network
+
+  smartcity-redis-insight:
+    image: redis/redisinsight
+    container_name: smartcity-redis-insight
+    ports:
+      - "8001:8001"
+    networks:
+      - smartcity-network
+
+  smartcity-rabbitmq:
+    image: rabbitmq:3-management
+    container_name: smartcity-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - smartcity-network
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+networks:
+  smartcity-network:
+    driver: bridge

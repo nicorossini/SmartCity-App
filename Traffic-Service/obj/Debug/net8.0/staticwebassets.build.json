@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "RDSiYtrD7EefuNud90lMLWdTtMlzog688bYXO7HJJvA=",
+  "Source": "Traffic-Service",
+  "BasePath": "_content/Traffic-Service",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,6 @@
+@Traffic_Service_HostAddress = http://localhost:5131
+
+GET {{Traffic_Service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
