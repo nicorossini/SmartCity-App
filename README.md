@@ -30,7 +30,7 @@ The application uses a microservices architecture with the following technologic
 ### 1. Clone the Repository
 
 ```bash
-git clone (https://github.com/nicorossini/SmartCity-App
+git clone https://github.com/nicorossini/SmartCity-App
 cd SmartCity-App
 ```
 
