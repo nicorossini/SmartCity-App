@@ -64,7 +64,7 @@ namespace SmartCityParking.Controllers
             [HttpPost("leave")]
             public async Task<ActionResult<ApiResponse<object>>> Leave()
             {
-                var userId = User.FindFirst("userId")?.Value;
+                var userId = User.FindFirst(ClaimTypes.Name)?.Value; 
                 if (string.IsNullOrEmpty(userId))
                 {
                     return Unauthorized(new ApiResponse<object>
@@ -110,7 +110,7 @@ namespace SmartCityParking.Controllers
             [HttpGet("history")]
             public async Task<ActionResult<ApiResponse<List<ParkingEvent>>>> GetHistory()
             {
-                var userId = User.FindFirst("userId")?.Value;
+                var userId = User.FindFirst(ClaimTypes.Name)?.Value; 
                 var history = await _mongoService.GetParkingHistoryAsync(userId);
 
                 return Ok(new ApiResponse<List<ParkingEvent>>
