@@ -25,8 +25,7 @@ namespace SmartCityParking.Services.Implementations
                 {
                     Subject = new ClaimsIdentity(new[]
                     {
-                        new Claim(ClaimTypes.Name, userId),
-                        new Claim("userId", userId)
+                        new Claim(ClaimTypes.Name, userId)
                     }),
                     Expires = DateTime.UtcNow.AddHours(24),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -51,7 +50,7 @@ namespace SmartCityParking.Services.Implementations
                     }, out SecurityToken validatedToken);
 
                     var jwtToken = (JwtSecurityToken)validatedToken;
-                    var userId = jwtToken.Claims.First(x => x.Type == "userId").Value;
+                    var userId = jwtToken.Claims.First(x => x.Type == ClaimTypes.Name).Value; 
                     return userId;
                 }
                 catch

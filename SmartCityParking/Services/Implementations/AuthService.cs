@@ -8,6 +8,7 @@ namespace SmartCityParking.Services.Implementations
 {
     public class AuthService : IAuthService
     {
+        private readonly IJwtService _jwtService;
         // Simple in-memory user store for demo purposes
         private readonly Dictionary<string, string> _users = new()
         {
@@ -16,28 +17,22 @@ namespace SmartCityParking.Services.Implementations
             { "test", "test123" }
         };
 
+        public AuthService(IJwtService jwtService) // Inject JwtService
+        {
+            _jwtService = jwtService;
+        }
+
         public Task<bool> ValidateCredentialsAsync(string username, string password)
         {
             return Task.FromResult(_users.TryGetValue(username, out var storedPassword) && storedPassword == password);
         }
-
-        // You might also want to add a method to generate JWT tokens
-        public string GenerateJwtToken(string username, string secretKey)
+         public async Task<string?> LoginAsync(string username, string password)
         {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(secretKey);
-            var tokenDescriptor = new SecurityTokenDescriptor
+            if (await ValidateCredentialsAsync(username, password))
             {
-                Subject = new ClaimsIdentity(new[]
-                {
-                    new Claim(ClaimTypes.Name, username),
-                    new Claim(ClaimTypes.NameIdentifier, username)
-                }),
-                Expires = DateTime.UtcNow.AddHours(24),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
+                return _jwtService.GenerateToken(username); 
+            }
+            return null;
         }
     }
 }

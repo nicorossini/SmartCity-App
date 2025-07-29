@@ -26,7 +26,7 @@ namespace SmartCityParking.Controllers
             [HttpPost("park")]
             public async Task<ActionResult<ApiResponse<ParkingResponse>>> Park()
             {
-                var userId = User.FindFirst("userId")?.Value;
+                var userId = User.FindFirst(ClaimTypes.Name)?.Value; 
                 if (string.IsNullOrEmpty(userId))
                 {
                     return Unauthorized(new ApiResponse<ParkingResponse>

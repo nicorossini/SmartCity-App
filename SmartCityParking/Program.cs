@@ -29,7 +29,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 // Add custom services
 builder.Services.AddScoped<IJwtService, JwtService>();
-builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IAuthService>(provider => 
+    new AuthService(provider.GetRequiredService<IJwtService>()));
 builder.Services.AddScoped<IMongoService, MongoService>();
 
 // Configure Orleans
