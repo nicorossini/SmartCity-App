@@ -14,7 +14,7 @@ namespace SmartCityParking.Services.Implementations
             public JwtService(IConfiguration configuration)
             {
                 _configuration = configuration;
-                _secretKey = _configuration["Jwt:SecretKey"] ?? "your-super-secret-key-that-is-at-least-32-characters-long";
+                _secretKey = _configuration["Jwt:SecretKey"] ?? "SecretKeyNotSet";
             }
 
             public string GenerateToken(string userId)
